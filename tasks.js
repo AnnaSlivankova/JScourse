@@ -9,36 +9,34 @@ let personalMovieDB = {
     genres: [],
     privat: false
   };
-console.log(personalMovieDB.count);
 
-let q1 = prompt('Один из последних просмотренных фильмов?'),
-    q2 = prompt('Насколько оцените его?'),
-    q3 = prompt('Один из последних просмотренных фильмов?'),
-    q4 = prompt('Насколько оцените его?');
-
-let answer1 = q1,
-    answer2 = q2;
-
-personalMovieDB.movies[answer1] = answer2;
-personalMovieDB.movies[q3] = q4;
-console.log(personalMovieDB.movies);
-
-
-
-if (personalMovieDB.count <= 10) {
-    console.log('Просмотрено довольно мало фильмов');
-    
-} else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-    console.log('Вы классический зритель');
-    
-} else if (personalMovieDB.count >= 30) {
-    console.log('Вы киноман');
-    
-} else {
-    console.log('Произошла ошибка');
-}
-
-
+for (let i = 0; i < 2; i++) {
+    let q1 = prompt('Один из последних просмотренных фильмов?', + ''),
+        q2 = prompt('Насколько оцените его?', '');
+  
+      if (q1 != null && q2 != null && q1 != "" && q2 != "" && q1.length < 50) {
+          personalMovieDB.movies[q1] = q2;
+          console.log("Done");
+      } else {
+          console.log('Error');
+          i--;
+      }
+  }
+  
+    if (personalMovieDB.count <= 10) {
+      console.log('Просмотрено довольно мало фильмов');
+      
+  } else if (personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+      console.log('Вы классический зритель');
+      
+  } else if (personalMovieDB.count >= 30) {
+      console.log('Вы киноман');
+      
+  } else {
+      console.log('Произошла ошибка');
+  }
+  
+  console.log(personalMovieDB.movies);
 
 // 1) Автоматизировать вопросы пользователю про фильмы при помощи цикла
 // 2) Сделать так, чтобы пользователь не мог оставить ответ в виде пустой строки,
